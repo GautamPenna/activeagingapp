@@ -243,34 +243,51 @@
     }
     .legal-hero {
       background: var(--dark);
-      padding: 4rem 5vw 3rem;
-      position: relative; overflow: hidden;
+      padding-top: 66px;
+      position: relative;
     }
     .legal-hero::before {
       content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(201,79,216,.15) 0%, transparent 65%);
+      pointer-events: none;
     }
-    .legal-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
-    .legal-hero h1 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: -.03em; margin-bottom: .5rem; animation: none; }
-    .legal-hero p { color: rgba(255,255,255,.55); font-size: .9rem; }
+    .legal-hero-inner {
+      max-width: 860px; margin: 0 auto;
+      position: relative; z-index: 1;
+      padding: 3rem 5vw 0;
+    }
+    .legal-hero h1 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: -.03em; margin-bottom: .4rem; animation: none; }
+    .legal-hero p { color: rgba(255,255,255,.55); font-size: .9rem; margin-bottom: 2rem; }
 
     /* Tab switcher on legal page */
     .legal-tabs {
-      max-width: 860px; margin: 0 auto;
-      display: flex; gap: .5rem;
-      padding: 2rem 5vw 0;
+      display: flex; gap: 0;
+      position: relative; z-index: 2;
+      margin-top: 1.5rem;
     }
     .legal-tab {
-      padding: .6rem 1.5rem; border-radius: 50px 50px 0 0;
-      font-size: .88rem; font-weight: 600;
+      padding: .85rem 2rem;
+      font-size: .9rem; font-weight: 700;
       border: none; cursor: pointer;
-      background: rgba(255,255,255,.12); color: rgba(255,255,255,.6);
-      font-family: 'Sora', sans-serif; transition: all .22s;
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.5);
+      font-family: 'Sora', sans-serif;
+      transition: all .22s;
+      border-radius: 12px 12px 0 0;
+      margin-right: 4px;
+      position: relative; z-index: 2;
     }
-    .legal-tab.active { background: var(--light); color: var(--violet); }
-    .legal-tab:not(.active):hover { background: rgba(255,255,255,.2); color: #fff; }
+    .legal-tab.active {
+      background: var(--light);
+      color: var(--violet);
+      font-weight: 800;
+    }
+    .legal-tab:not(.active):hover {
+      background: rgba(255,255,255,.16);
+      color: rgba(255,255,255,.9);
+    }
 
-    .legal-body { max-width: 860px; margin: 0 auto; padding: 3rem 5vw 5rem; }
+    .legal-body { max-width: 860px; margin: 0 auto; padding: 3rem 5vw 5rem; background: var(--light); }
     .legal-doc { display: none; }
     .legal-doc.active { display: block; }
 
@@ -593,10 +610,10 @@
       </button>
       <h1>Legal</h1>
       <p>Active Aging · Last updated: February 16, 2026</p>
-    </div>
-    <div class="legal-tabs" style="background:var(--dark);padding-bottom:0;">
-      <button class="legal-tab active" id="ltab-privacy" onclick="setLegalTab('privacy')">Privacy Policy</button>
-      <button class="legal-tab" id="ltab-terms" onclick="setLegalTab('terms')">Terms &amp; Conditions</button>
+      <div class="legal-tabs">
+        <button class="legal-tab active" id="ltab-privacy" onclick="setLegalTab('privacy')">Privacy Policy</button>
+        <button class="legal-tab" id="ltab-terms" onclick="setLegalTab('terms')">Terms &amp; Conditions</button>
+      </div>
     </div>
   </div>
 
