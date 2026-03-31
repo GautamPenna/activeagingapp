@@ -49,10 +49,10 @@
       transition: box-shadow .3s;
     }
     nav.scrolled { box-shadow: var(--sh-md); }
-    .nav-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -.03em; text-decoration: none; color: var(--dark); }
+    .nav-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -.03em; text-decoration: none; color: var(--dark); cursor: pointer; }
     .nav-logo span { color: var(--violet); }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: .875rem; font-weight: 500; color: var(--mid); text-decoration: none; transition: color .2s; }
+    .nav-links a { font-size: .875rem; font-weight: 500; color: var(--mid); text-decoration: none; transition: color .2s; cursor: pointer; }
     .nav-links a:hover { color: var(--violet); }
     .btn-nav {
       background: var(--violet) !important; color: #fff !important;
@@ -61,6 +61,10 @@
       box-shadow: var(--sh-v); transition: transform .2s, box-shadow .2s !important;
     }
     .btn-nav:hover { transform: translateY(-1px); box-shadow: 0 14px 36px rgba(201,79,216,.42) !important; }
+
+    /* ── PAGE VIEWS ── */
+    #page-main  { display: block; }
+    #page-legal { display: none; }
 
     /* ── HERO ── */
     .hero {
@@ -74,10 +78,7 @@
         radial-gradient(ellipse 45% 40% at 10% 85%, rgba(59,130,246,.07) 0%, transparent 60%),
         radial-gradient(ellipse 35% 45% at 55% 5%,  rgba(34,197,94,.04)  0%, transparent 60%);
     }
-    .blob {
-      position: absolute; border-radius: 50%;
-      filter: blur(65px); pointer-events: none; z-index: 0;
-    }
+    .blob { position: absolute; border-radius: 50%; filter: blur(65px); pointer-events: none; z-index: 0; }
     .blob-1 { width:460px;height:460px;background:rgba(201,79,216,.11);top:-80px;right:-80px;animation:floatB 9s ease-in-out infinite; }
     .blob-2 { width:320px;height:320px;background:rgba(59,130,246,.08);bottom:60px;left:-60px;animation:floatB 11s ease-in-out infinite reverse; }
     @keyframes floatB { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-26px) scale(1.04)} }
@@ -96,38 +97,15 @@
       border: 1px solid rgba(201,79,216,.2); margin-bottom: 1.4rem;
       animation: fadeUp .55s ease both;
     }
-    .hero-badge::before {
-      content:''; width:7px; height:7px; background:var(--violet); border-radius:50%;
-      animation: pulse 2s infinite;
-    }
+    .hero-badge::before { content:''; width:7px; height:7px; background:var(--violet); border-radius:50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.5)} }
-    h1 {
-      font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800;
-      line-height: 1.06; letter-spacing: -.04em; margin-bottom: 1.2rem;
-      animation: fadeUp .55s ease .1s both;
-    }
+    h1 { font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; line-height: 1.06; letter-spacing: -.04em; margin-bottom: 1.2rem; animation: fadeUp .55s ease .1s both; }
     h1 em { font-style: italic; color: var(--violet); font-family: 'Lora', serif; }
-    .hero-sub {
-      font-size: 1.05rem; line-height: 1.72; color: var(--mid);
-      max-width: 460px; margin-bottom: 2.25rem;
-      animation: fadeUp .55s ease .2s both;
-    }
+    .hero-sub { font-size: 1.05rem; line-height: 1.72; color: var(--mid); max-width: 460px; margin-bottom: 2.25rem; animation: fadeUp .55s ease .2s both; }
     .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; animation: fadeUp .55s ease .3s both; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: var(--violet); color: #fff;
-      padding: .8rem 1.7rem; border-radius: 50px;
-      font-weight: 700; font-size: .93rem; text-decoration: none;
-      box-shadow: var(--sh-v); transition: transform .2s, box-shadow .2s;
-    }
+    .btn-primary { display: inline-flex; align-items: center; gap: .5rem; background: var(--violet); color: #fff; padding: .8rem 1.7rem; border-radius: 50px; font-weight: 700; font-size: .93rem; text-decoration: none; box-shadow: var(--sh-v); transition: transform .2s, box-shadow .2s; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 42px rgba(201,79,216,.42); }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: .45rem;
-      background: transparent; color: var(--dark);
-      padding: .8rem 1.5rem; border-radius: 50px;
-      font-weight: 600; font-size: .93rem; text-decoration: none;
-      border: 1.5px solid var(--border); transition: border-color .2s, color .2s;
-    }
+    .btn-outline { display: inline-flex; align-items: center; gap: .45rem; background: transparent; color: var(--dark); padding: .8rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: .93rem; text-decoration: none; border: 1.5px solid var(--border); transition: border-color .2s, color .2s; }
     .btn-outline:hover { border-color: var(--violet); color: var(--violet); }
     .hero-stats { display: flex; gap: 2rem; margin-top: 2.75rem; animation: fadeUp .55s ease .4s both; }
     .stat-num { font-size: 1.7rem; font-weight: 800; color: var(--violet); letter-spacing: -.03em; }
@@ -135,23 +113,16 @@
 
     /* ── PHONE CLUSTER ── */
     .hero-vis { position: relative; height: 580px; animation: fadeUp .75s ease .15s both; }
-    .ph-frame {
-      position: absolute; background: var(--dark); border-radius: 40px; padding: 9px;
-      box-shadow: var(--sh-lg), 0 0 0 1px rgba(255,255,255,.08) inset;
-    }
+    .ph-frame { position: absolute; background: var(--dark); border-radius: 40px; padding: 9px; box-shadow: var(--sh-lg), 0 0 0 1px rgba(255,255,255,.08) inset; }
     .ph-screen { border-radius: 33px; overflow: hidden; background: var(--light); }
     .ph-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
     .ph-main { width: 225px; top: 10px; left: 50%; transform: translateX(-50%); z-index: 3; }
     .ph-main .ph-screen { height: 458px; }
-    .ph-left  { width: 182px; top: 75px; left: 0px; z-index: 2; transform: rotate(-6deg); opacity: .88; }
+    .ph-left  { width: 182px; top: 75px; left: 0; z-index: 2; transform: rotate(-6deg); opacity: .88; }
     .ph-left .ph-screen { height: 370px; }
-    .ph-right { width: 182px; top: 75px; right: 0px; z-index: 2; transform: rotate(6deg); opacity: .88; }
+    .ph-right { width: 182px; top: 75px; right: 0; z-index: 2; transform: rotate(6deg); opacity: .88; }
     .ph-right .ph-screen { height: 370px; }
-    .fpill {
-      position: absolute; z-index: 10; background: #fff; border-radius: 50px;
-      padding: .45rem .85rem; display: flex; align-items: center; gap: .45rem;
-      box-shadow: var(--sh-md); font-size: .76rem; font-weight: 700;
-    }
+    .fpill { position: absolute; z-index: 10; background: #fff; border-radius: 50px; padding: .45rem .85rem; display: flex; align-items: center; gap: .45rem; box-shadow: var(--sh-md); font-size: .76rem; font-weight: 700; }
     .fp1 { top: 20px; right: -10px; animation: fp 4s ease-in-out infinite; }
     .fp2 { bottom: 130px; left: -10px; animation: fp 4s ease-in-out 1.5s infinite; }
     .fp3 { bottom: 20px; right: -10px; animation: fp 4s ease-in-out 3s infinite; }
@@ -161,35 +132,20 @@
     /* ── SECTION BASE ── */
     section { padding: 6rem 5vw; }
     .inner { max-width: 1180px; margin: 0 auto; }
-    .stag {
-      display: inline-flex; align-items: center; gap: .4rem;
-      font-size: .72rem; font-weight: 800; letter-spacing: .08em;
-      color: var(--violet); text-transform: uppercase; margin-bottom: .65rem;
-    }
+    .stag { display: inline-flex; align-items: center; gap: .4rem; font-size: .72rem; font-weight: 800; letter-spacing: .08em; color: var(--violet); text-transform: uppercase; margin-bottom: .65rem; }
     .stag::before { content:''; display:inline-block; width:18px; height:2px; background: var(--violet); }
     h2 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; margin-bottom: .9rem; }
     .sub { font-size: 1rem; color: var(--mid); line-height: 1.72; max-width: 540px; }
 
     /* ── AUDIENCE TABS ── */
     .aud-sec { background: var(--light); }
-    .tab-nav {
-      display: flex; gap: .4rem; background: #d8d8d8; border-radius: 50px;
-      padding: 4px; width: fit-content; margin: 2.25rem 0 1.75rem;
-    }
-    .tab-btn {
-      padding: .55rem 1.4rem; border-radius: 50px; font-size: .88rem; font-weight: 600;
-      border: none; cursor: pointer; background: transparent; color: var(--muted);
-      transition: all .22s; font-family: 'Sora', sans-serif;
-    }
+    .tab-nav { display: flex; gap: .4rem; background: #d8d8d8; border-radius: 50px; padding: 4px; width: fit-content; margin: 2.25rem 0 1.75rem; }
+    .tab-btn { padding: .55rem 1.4rem; border-radius: 50px; font-size: .88rem; font-weight: 600; border: none; cursor: pointer; background: transparent; color: var(--muted); transition: all .22s; font-family: 'Sora', sans-serif; }
     .tab-btn.active { background: #fff; color: var(--violet); box-shadow: var(--sh-sm); }
     .tab-panel { display: none; }
     .tab-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
     .aud-feats { display: flex; flex-direction: column; gap: 1.1rem; }
-    .feat-row {
-      display: flex; align-items: flex-start; gap: 1rem;
-      background: #fff; border-radius: 16px; padding: 1.15rem 1.4rem;
-      box-shadow: var(--sh-sm); transition: transform .2s, box-shadow .2s;
-    }
+    .feat-row { display: flex; align-items: flex-start; gap: 1rem; background: #fff; border-radius: 16px; padding: 1.15rem 1.4rem; box-shadow: var(--sh-sm); transition: transform .2s, box-shadow .2s; }
     .feat-row:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
     .fi { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
     .ft h4 { font-size: .92rem; font-weight: 700; margin-bottom: .22rem; }
@@ -201,54 +157,31 @@
 
     /* ── FEATURES GRID ── */
     .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.35rem; margin-top: 2.75rem; }
-    .feat-card {
-      background: #fff; border-radius: 24px; padding: 1.85rem;
-      border: 1px solid var(--border); transition: transform .25s, box-shadow .25s, border-color .25s;
-    }
+    .feat-card { background: #fff; border-radius: 24px; padding: 1.85rem; border: 1px solid var(--border); transition: transform .25s, box-shadow .25s, border-color .25s; }
     .feat-card:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); border-color: rgba(201,79,216,.2); }
     .fc-ico { width: 50px; height: 50px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; margin-bottom: 1.15rem; }
     .feat-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .45rem; letter-spacing: -.02em; }
     .feat-card p { font-size: .82rem; color: var(--muted); line-height: 1.6; }
 
-    /* ── SCREENSHOT CAROUSEL ── */
+    /* ── CAROUSEL ── */
     .carr-sec { background: var(--dark); overflow: hidden; }
     .carr-sec h2 { color: #fff; }
     .carr-sec .stag { color: var(--violet-light); }
     .carr-sec .stag::before { background: var(--violet-light); }
     .carr-sec .sub { color: rgba(255,255,255,.58); }
-    .carr-wrap {
-      overflow: hidden; margin-top: 2.75rem;
-      -webkit-mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-      mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    }
+    .carr-wrap { overflow: hidden; margin-top: 2.75rem; -webkit-mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
     .carr-track { display: flex; gap: 1.25rem; animation: scrollL 30s linear infinite; width: max-content; }
     .carr-track:hover { animation-play-state: paused; }
     @keyframes scrollL { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    .sc-thumb {
-      background: #3a3a3c; border-radius: 26px; padding: 7px; flex-shrink: 0;
-      box-shadow: 0 8px 28px rgba(0,0,0,.4); transition: transform .28s;
-      cursor: pointer;
-    }
+    .sc-thumb { background: #3a3a3c; border-radius: 26px; padding: 7px; flex-shrink: 0; box-shadow: 0 8px 28px rgba(0,0,0,.4); transition: transform .28s; cursor: pointer; }
     .sc-thumb:hover { transform: scale(1.05); }
-    .sc-thumb img {
-      width: 148px; height: 300px; border-radius: 20px;
-      object-fit: cover; object-position: top; display: block;
-    }
+    .sc-thumb img { width: 148px; height: 300px; border-radius: 20px; object-fit: cover; object-position: top; display: block; }
 
     /* ── HOW IT WORKS ── */
     .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 2.75rem; position: relative; }
-    .steps::before {
-      content:''; position: absolute; top: 35px; left: 12.5%; right: 12.5%; height: 2px;
-      background: linear-gradient(90deg, var(--violet), var(--blue)); z-index: 0;
-    }
+    .steps::before { content:''; position: absolute; top: 35px; left: 12.5%; right: 12.5%; height: 2px; background: linear-gradient(90deg, var(--violet), var(--blue)); z-index: 0; }
     .step { text-align: center; position: relative; z-index: 1; padding: 0 .5rem; }
-    .step-n {
-      width: 70px; height: 70px; border-radius: 50%; background: var(--violet-faint);
-      border: 2px solid var(--violet); color: var(--violet);
-      font-weight: 800; font-size: 1.35rem;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.15rem; transition: background .25s, color .25s;
-    }
+    .step-n { width: 70px; height: 70px; border-radius: 50%; background: var(--violet-faint); border: 2px solid var(--violet); color: var(--violet); font-weight: 800; font-size: 1.35rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.15rem; transition: background .25s, color .25s; }
     .step:hover .step-n { background: var(--violet); color: #fff; }
     .step h3 { font-size: .92rem; font-weight: 700; margin-bottom: .35rem; }
     .step p  { font-size: .8rem; color: var(--muted); line-height: 1.5; }
@@ -271,10 +204,7 @@
     .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.35rem; }
     .tag { padding: .38rem .8rem; border-radius: 50px; font-size: .76rem; font-weight: 600; border: 1.5px solid var(--border); color: var(--mid); transition: border-color .2s, color .2s; cursor: default; }
     .tag:hover { border-color: var(--violet); color: var(--violet); }
-    .about-vis {
-      background: linear-gradient(135deg, var(--violet-faint), var(--blue-faint));
-      border-radius: 32px; padding: 2.25rem; position: relative; overflow: hidden;
-    }
+    .about-vis { background: linear-gradient(135deg, var(--violet-faint), var(--blue-faint)); border-radius: 32px; padding: 2.25rem; position: relative; overflow: hidden; }
     .about-vis::before { content:''; position:absolute; top:-40px; right:-40px; width:190px; height:190px; border-radius:50%; background:rgba(201,79,216,.12); }
     .astat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; position: relative; z-index: 1; }
     .astat { background: #fff; border-radius: 16px; padding: 1.15rem; box-shadow: var(--sh-sm); }
@@ -284,17 +214,6 @@
     .astore .as-lbl { font-size: .72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .3rem; }
     .astore .as-name { font-size: .9rem; font-weight: 600; }
 
-    /* ── PLACEHOLDER ── */
-    .ph {
-      background: repeating-linear-gradient(45deg,rgba(201,79,216,.05),rgba(201,79,216,.05) 10px,transparent 10px,transparent 20px);
-      border: 2px dashed rgba(201,79,216,.3); border-radius: 12px; padding: 1rem 1.25rem; position: relative;
-    }
-    .ph::before {
-      content:'⚠ PLACEHOLDER'; position:absolute; top:-10px; left:12px;
-      background:var(--violet); color:#fff; font-size:.6rem; font-weight:800; letter-spacing:.08em;
-      padding:2px 8px; border-radius:4px;
-    }
-
     /* ── CTA ── */
     .cta-sec { background: var(--dark); text-align: center; position: relative; overflow: hidden; }
     .cta-sec::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 65% at 50% 50%, rgba(201,79,216,.18) 0%, transparent 70%); }
@@ -302,18 +221,96 @@
     .cta-sec h2 { color: #fff; }
     .cta-sec .sub { color: rgba(255,255,255,.62); margin: .9rem auto 2.25rem; }
     .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .btn-white { background: #fff; color: var(--violet); padding: .85rem 1.9rem; border-radius: 50px; font-weight: 700; font-size: .92rem; text-decoration: none; box-shadow: var(--sh-md); transition: transform .2s, box-shadow .2s; }
+    .btn-white { background: #fff; color: var(--violet); padding: .85rem 1.9rem; border-radius: 50px; font-weight: 700; font-size: .92rem; text-decoration: none; box-shadow: var(--sh-md); transition: transform .2s, box-shadow .2s; display: inline-flex; align-items: center; gap: .5rem; }
     .btn-white:hover { transform: translateY(-2px); box-shadow: var(--sh-lg); }
     .btn-ghost { border: 1.5px solid rgba(255,255,255,.28); color: #fff; padding: .85rem 1.9rem; border-radius: 50px; font-weight: 600; font-size: .92rem; text-decoration: none; transition: border-color .2s, background .2s; }
     .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.06); }
 
     /* ── FOOTER ── */
     footer { background: var(--dark-2); color: rgba(255,255,255,.45); padding: 2.25rem 5vw; font-size: .8rem; display: flex; align-items: center; justify-content: space-between; }
-    .f-logo { color: #fff; font-weight: 800; font-size: .98rem; letter-spacing: -.02em; }
+    .f-logo { color: #fff; font-weight: 800; font-size: .98rem; letter-spacing: -.02em; cursor: pointer; }
     .f-logo span { color: var(--violet); }
     .f-nav { display: flex; gap: 1.4rem; }
-    .f-nav a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
+    .f-nav a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; cursor: pointer; }
     .f-nav a:hover { color: var(--violet-light); }
+
+    /* ══════════════════════════════════════════
+       LEGAL PAGE
+    ══════════════════════════════════════════ */
+    .legal-page {
+      padding-top: 66px; min-height: 100vh;
+      background: var(--light);
+    }
+    .legal-hero {
+      background: var(--dark);
+      padding: 4rem 5vw 3rem;
+      position: relative; overflow: hidden;
+    }
+    .legal-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(201,79,216,.15) 0%, transparent 65%);
+    }
+    .legal-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .legal-hero h1 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: -.03em; margin-bottom: .5rem; animation: none; }
+    .legal-hero p { color: rgba(255,255,255,.55); font-size: .9rem; }
+
+    /* Tab switcher on legal page */
+    .legal-tabs {
+      max-width: 860px; margin: 0 auto;
+      display: flex; gap: .5rem;
+      padding: 2rem 5vw 0;
+    }
+    .legal-tab {
+      padding: .6rem 1.5rem; border-radius: 50px 50px 0 0;
+      font-size: .88rem; font-weight: 600;
+      border: none; cursor: pointer;
+      background: rgba(255,255,255,.12); color: rgba(255,255,255,.6);
+      font-family: 'Sora', sans-serif; transition: all .22s;
+    }
+    .legal-tab.active { background: var(--light); color: var(--violet); }
+    .legal-tab:not(.active):hover { background: rgba(255,255,255,.2); color: #fff; }
+
+    .legal-body { max-width: 860px; margin: 0 auto; padding: 3rem 5vw 5rem; }
+    .legal-doc { display: none; }
+    .legal-doc.active { display: block; }
+
+    /* Legal typography */
+    .legal-doc h2 {
+      font-size: 1.05rem; font-weight: 800; letter-spacing: -.01em;
+      color: var(--dark); margin: 2.25rem 0 .6rem;
+      padding-bottom: .4rem; border-bottom: 2px solid var(--violet-faint);
+    }
+    .legal-doc h2:first-child { margin-top: 0; }
+    .legal-doc h3 { font-size: .93rem; font-weight: 700; color: var(--dark); margin: 1.5rem 0 .4rem; }
+    .legal-doc p { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: .85rem; }
+    .legal-doc ul { margin: .5rem 0 .85rem 1.5rem; }
+    .legal-doc li { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: .35rem; }
+    .legal-doc strong { color: var(--dark); font-weight: 700; }
+    .legal-doc a { color: var(--violet); text-decoration: none; }
+    .legal-doc a:hover { text-decoration: underline; }
+    .legal-updated {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--violet-faint); color: var(--violet);
+      font-size: .75rem; font-weight: 700; padding: .35rem .85rem;
+      border-radius: 50px; margin-bottom: 2rem;
+    }
+    .legal-contact-box {
+      background: var(--violet-faint); border: 1px solid rgba(201,79,216,.2);
+      border-radius: 16px; padding: 1.5rem 1.75rem; margin-top: 2rem;
+    }
+    .legal-contact-box h3 { font-size: .95rem; font-weight: 700; margin-bottom: .5rem; color: var(--dark); }
+    .legal-contact-box p { font-size: .85rem; color: var(--mid); margin: 0; }
+    .legal-contact-box a { color: var(--violet); font-weight: 600; text-decoration: none; }
+
+    /* Back button */
+    .legal-back {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: transparent; border: none; cursor: pointer;
+      font-family: 'Sora', sans-serif; font-size: .85rem; font-weight: 600;
+      color: rgba(255,255,255,.7); padding: 0; margin-bottom: 1.25rem;
+      transition: color .2s;
+    }
+    .legal-back:hover { color: #fff; }
 
     /* ── RESPONSIVE ── */
     @media(max-width:900px) {
@@ -331,6 +328,7 @@
       .test-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: .9rem; text-align: center; }
+      .legal-tabs { padding-left: 5vw; padding-right: 5vw; }
     }
     @media(max-width:600px) {
       .nav-links { display: none; }
@@ -341,271 +339,436 @@
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ═══════════════════════════════════════
+     NAV (shared)
+═══════════════════════════════════════ -->
 <nav id="nav">
-  <a class="nav-logo" href="#">Active<span>Aging</span></a>
-  <ul class="nav-links">
-    <li><a href="#audience">Who It's For</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#screens">Screenshots</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#download" class="btn-nav">Download Free</a></li>
+  <span class="nav-logo" onclick="showPage('main')">Active<span>Aging</span></span>
+  <ul class="nav-links" id="nav-main-links">
+    <li><a onclick="showPage('main');scrollToId('audience')">Who It's For</a></li>
+    <li><a onclick="showPage('main');scrollToId('features')">Features</a></li>
+    <li><a onclick="showPage('main');scrollToId('screens')">Screenshots</a></li>
+    <li><a onclick="showPage('main');scrollToId('about')">About</a></li>
+    <li><a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="btn-nav">Download Free</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge">Now Available on the App Store</div>
-      <h1>Stay Active.<br/><em>Feel Strong.</em></h1>
-      <p class="hero-sub">Warm, safe, guided exercise — designed with seniors in mind, trusted by the people who support them. Completely free.</p>
-      <div class="hero-actions">
-        <a href="#download" class="btn-primary">
-          <!-- Apple-style icon -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Download Free
-        </a>
-        <a href="#features" class="btn-outline">See Features →</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="stat-num">9+</div><div class="stat-lbl">Guided Exercises</div></div>
-        <div><div class="stat-num">3</div><div class="stat-lbl">Workout Plans</div></div>
-        <div><div class="stat-num">100%</div><div class="stat-lbl">Free to Use</div></div>
-      </div>
-    </div>
+<!-- ═══════════════════════════════════════
+     MAIN PAGE
+═══════════════════════════════════════ -->
+<div id="page-main">
 
-    <div class="hero-vis">
-      <div class="ph-frame ph-left">
-        <div class="ph-screen">
-          <img src="screenshots/screen3.png" alt="Safety onboarding" />
-        </div>
-      </div>
-      <div class="ph-frame ph-main">
-        <div class="ph-screen">
-          <img src="screenshots/screen5.png" alt="Home screen" />
-        </div>
-      </div>
-      <div class="ph-frame ph-right">
-        <div class="ph-screen">
-          <img src="screenshots/screen6.png" alt="Workouts screen" />
-        </div>
-      </div>
-      <div class="fpill fp1">🛡️ <span>Safety First</span></div>
-      <div class="fpill fp2">🎙️ <span>Voice Guided</span></div>
-      <div class="fpill fp3">🔥 <span>Build Streaks</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- AUDIENCE TABS -->
-<section class="aud-sec" id="audience">
-  <div class="inner">
-    <div class="stag">Who It's For</div>
-    <h2>Built for two audiences,<br/>perfect for both.</h2>
-    <p class="sub">Whether you're a senior looking to stay active, or a center director seeking a trusted fitness tool — ActiveAging was made for you.</p>
-    <div class="tab-nav">
-      <button class="tab-btn active" onclick="setTab('seniors',this)">👴 For Seniors</button>
-      <button class="tab-btn" onclick="setTab('centers',this)">🏢 For Activity Centers</button>
-    </div>
-
-    <div class="tab-panel active" id="tab-seniors">
-      <div class="aud-feats">
-        <div class="feat-row"><div class="fi" style="background:var(--violet-faint)">🛡️</div><div class="ft"><h4>Safety Onboarding First</h4><p>Personalized health checks before every session ensure each exercise is appropriate and safe for your body.</p></div></div>
-        <div class="feat-row"><div class="fi" style="background:var(--blue-faint)">🎙️</div><div class="ft"><h4>Voice Guidance Every Step</h4><p>Clear, friendly audio coaching walks you through every movement — no guessing, no confusion.</p></div></div>
-        <div class="feat-row"><div class="fi" style="background:var(--green-faint)">📱</div><div class="ft"><h4>Accessible Design</h4><p>Large buttons, high contrast, simple navigation — zero tech frustration, ever.</p></div></div>
-        <div class="feat-row"><div class="fi" style="background:var(--orange-faint)">🔥</div><div class="ft"><h4>Progress &amp; Streaks</h4><p>Daily streaks and milestones build the consistency that creates lasting results and confidence.</p></div></div>
-      </div>
-      <div class="aud-phone">
-        <div class="aud-ph-frame"><div class="aud-ph-screen">
-          <img src="screenshots/screen8.png" alt="Workout details screen" />
-        </div></div>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="tab-centers">
-      <div class="aud-feats">
-        <div class="feat-row"><div class="fi" style="background:var(--violet-faint)">📋</div><div class="ft"><h4>Structured Workout Plans</h4><p>Give members 3 ready-made workout plans they can use independently between your scheduled classes.</p></div></div>
-        <div class="feat-row"><div class="fi" style="background:var(--green-faint)">✅</div><div class="ft"><h4>Evidence-Informed Content</h4><p>Every exercise is designed with senior mobility, safety, and dignity in mind. Beginner through Advanced levels.</p></div></div>
-        <div class="feat-row"><div class="fi" style="background:var(--blue-faint)">🆓</div><div class="ft"><h4>Completely Free for Members</h4><p>No subscription, no paywalls. Members download and use it at zero cost — extends your center's impact daily.</p></div></div>
-        <div class="feat-row"><div class="fi" style="background:var(--orange-faint)">👤</div><div class="ft"><h4>Trainer Code Connection</h4><p>Members enter your trainer code to connect directly, keeping you involved in their fitness journey.</p></div></div>
-      </div>
-      <div class="aud-phone">
-        <div class="aud-ph-frame"><div class="aud-ph-screen">
-          <img src="screenshots/screen6.png" alt="Workouts screen" />
-        </div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features">
-  <div class="inner">
-    <div class="stag">Features</div>
-    <h2>Everything needed to move<br/>safely — and keep moving.</h2>
-    <p class="sub">Six core features working together so seniors can exercise with confidence, every single day.</p>
-    <div class="feat-grid">
-      <div class="feat-card"><div class="fc-ico" style="background:var(--violet-faint)">🛡️</div><h3>Safety Onboarding</h3><p>Personalized health checks before every session ensure each exercise is appropriate for your current condition.</p></div>
-      <div class="feat-card"><div class="fc-ico" style="background:var(--blue-faint)">🎙️</div><h3>Voice Guidance</h3><p>Friendly audio coaching walks users through every movement step by step — like a personal trainer in your pocket.</p></div>
-      <div class="feat-card"><div class="fc-ico" style="background:var(--green-faint)">📱</div><h3>Accessible Design</h3><p>Large buttons, high contrast, and simple navigation specifically designed for seniors. No tech frustration.</p></div>
-      <div class="feat-card"><div class="fc-ico" style="background:var(--orange-faint)">🔥</div><h3>Progress &amp; Streaks</h3><p>Daily streaks and milestones build the consistency and motivation that creates lasting fitness habits.</p></div>
-      <div class="feat-card"><div class="fc-ico" style="background:var(--violet-faint)">📅</div><h3>Smart Scheduling</h3><p>Built-in calendar view to plan and track workouts week by week. See your progress at a glance.</p></div>
-      <div class="feat-card"><div class="fc-ico" style="background:var(--blue-faint)">🏋️</div><h3>Exercise Library</h3><p>9+ guided exercises spanning Beginner, Intermediate, and Advanced — all tailored for senior mobility and strength.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- SCREENSHOT CAROUSEL -->
-<section class="carr-sec" id="screens" style="padding-top:5rem;padding-bottom:5rem;">
-  <div class="inner">
-    <div class="stag">App Screens</div>
-    <h2>See it in action.</h2>
-    <p class="sub">A clean, intuitive experience built for seniors — every screen thoughtfully designed.</p>
-  </div>
-  <div class="carr-wrap">
-    <div class="carr-track">
-      <!-- Set 1 -->
-      <div class="sc-thumb"><img src="screenshots/screen1.png" alt="Login" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen2.png" alt="Create Account" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen3.png" alt="Safety Info" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen4.png" alt="Go At Your Own Pace" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen5.png" alt="Home" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen6.png" alt="Workouts" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen7.png" alt="Exercises" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen8.png" alt="Workout Details" /></div>
-      <!-- Set 2 — duplicate for seamless loop -->
-      <div class="sc-thumb"><img src="screenshots/screen1.png" alt="Login" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen2.png" alt="Create Account" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen3.png" alt="Safety Info" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen4.png" alt="Go At Your Own Pace" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen5.png" alt="Home" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen6.png" alt="Workouts" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen7.png" alt="Exercises" /></div>
-      <div class="sc-thumb"><img src="screenshots/screen8.png" alt="Workout Details" /></div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="inner">
-    <div class="stag">How It Works</div>
-    <h2>Up and moving in four steps.</h2>
-    <p class="sub">Getting started takes less than 2 minutes. No credit card, no subscription, no hassle.</p>
-    <div class="steps">
-      <div class="step"><div class="step-n">1</div><h3>Download Free</h3><p>Get ActiveAging from the App Store — always free, no hidden costs ever.</p></div>
-      <div class="step"><div class="step-n">2</div><h3>Safety Check</h3><p>Complete a quick health questionnaire so the app tailors your experience safely.</p></div>
-      <div class="step"><div class="step-n">3</div><h3>Choose a Workout</h3><p>Browse workout plans and exercises at beginner, intermediate, or advanced levels.</p></div>
-      <div class="step"><div class="step-n">4</div><h3>Move &amp; Improve</h3><p>Follow voice guidance, build streaks, and track your progress over time.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="test-sec">
-  <div class="inner">
-    <div class="stag">Testimonials</div>
-    <h2>Loved by seniors &amp;<br/>activity centers alike.</h2>
-    <p class="sub">Real stories from people using ActiveAging to stay active and independent.</p>
-    <div class="test-grid">
-      <div class="test-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"I'll finally be able to use the dumbbells lying around my house now!"</blockquote>
-        <div class="t-author"><div class="t-avatar">👵</div><div><div class="t-name">App Store User</div><div class="t-role">Senior User</div></div></div>
-      </div>
-      <div class="test-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"I think this will definitely help a lot of seniors get more active!"</blockquote>
-        <div class="t-author"><div class="t-avatar">🏢</div><div><div class="t-name">Activity Center Director</div><div class="t-role">Austin, TX</div></div></div>
-      </div>
-      <div class="test-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Movement is medicine and ActiveAging makes sure every senior can access it safely."</blockquote>
-        <div class="t-author"><div class="t-avatar">💪</div><div><div class="t-name">App Philosophy</div><div class="t-role">Designed with mobility &amp; dignity in mind</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="inner">
-    <div class="about-grid">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="hero-inner">
       <div>
-        <div class="stag">About</div>
-        <h2>Built with purpose,<br/>designed with care.</h2>
-        <p class="about-body">ActiveAging was created to solve a real problem: seniors often lack safe, accessible, and guided exercise tools. Every design decision — from the large buttons to the voice coaching — was made with mobility and dignity in mind.</p>
-        <p class="about-body" style="margin-top:.85rem;">I noticed a real discrepancy between the resources available for young adults starting their fitness journey versus those available for senior citizens — especially people with mobility challenges, who are often left out entirely. With multiple years of experience in bodyweight training and strength conditioning, I felt compelled to do something about it. I've volunteered as a fitness instructor for a chair-based exercise class in Austin, TX, and saw firsthand how much seniors benefited from workouts tailored specifically to their circumstances — something that current apps simply don't do. That's how Active Aging was born. The majority of workouts on this app are custom-made with easy instructions and a UI designed with senior citizens in mind. And with the trainer feature, other centers can create custom exercises and encourage collective participation in workouts.</p>
-        <div class="tags">
-          <span class="tag">Swift / SwiftUI</span>
-          <span class="tag">iOS</span>
-          <span class="tag">AVFoundation</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">App Store</span>
-        </div>
-        <div style="margin-top:1.5rem;">
-          <a href="https://github.com/GautamPenna" target="_blank" class="btn-outline" style="font-size:.84rem;display:inline-flex;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-            View on GitHub (@GautamPenna)
+        <div class="hero-badge">Now Available on the App Store</div>
+        <h1>Stay Active.<br/><em>Feel Strong.</em></h1>
+        <p class="hero-sub">Warm, safe, guided exercise — designed with seniors in mind, trusted by the people who support them. Completely free.</p>
+        <div class="hero-actions">
+          <a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download Free
           </a>
+          <a onclick="showPage('main');scrollToId('features')" class="btn-outline" style="cursor:pointer;">See Features →</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-num">9+</div><div class="stat-lbl">Guided Exercises</div></div>
+          <div><div class="stat-num">3</div><div class="stat-lbl">Workout Plans</div></div>
+          <div><div class="stat-num">100%</div><div class="stat-lbl">Free to Use</div></div>
         </div>
       </div>
-      <div class="about-vis">
-        <div class="astat-grid">
-          <div class="astat"><div class="n">9+</div><div class="l">Guided Exercises</div></div>
-          <div class="astat"><div class="n">3</div><div class="l">Workout Plans</div></div>
-          <div class="astat"><div class="n">Free</div><div class="l">Always &amp; Forever</div></div>
-          <div class="astat"><div class="n">10+</div><div class="l">Downloads</div></div>
+      <div class="hero-vis">
+        <div class="ph-frame ph-left"><div class="ph-screen"><img src="screenshots/screen3.png" alt="Safety onboarding" /></div></div>
+        <div class="ph-frame ph-main"><div class="ph-screen"><img src="screenshots/screen5.png" alt="Home screen" /></div></div>
+        <div class="ph-frame ph-right"><div class="ph-screen"><img src="screenshots/screen6.png" alt="Workouts screen" /></div></div>
+        <div class="fpill fp1">🛡️ <span>Safety First</span></div>
+        <div class="fpill fp2">🎙️ <span>Voice Guided</span></div>
+        <div class="fpill fp3">🔥 <span>Build Streaks</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE TABS -->
+  <section class="aud-sec" id="audience">
+    <div class="inner">
+      <div class="stag">Who It's For</div>
+      <h2>Built for two audiences,<br/>perfect for both.</h2>
+      <p class="sub">Whether you're a senior looking to stay active, or a center director seeking a trusted fitness tool — ActiveAging was made for you.</p>
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="setTab('seniors',this)">👴 For Seniors</button>
+        <button class="tab-btn" onclick="setTab('centers',this)">🏢 For Activity Centers</button>
+      </div>
+      <div class="tab-panel active" id="tab-seniors">
+        <div class="aud-feats">
+          <div class="feat-row"><div class="fi" style="background:var(--violet-faint)">🛡️</div><div class="ft"><h4>Safety Onboarding First</h4><p>Personalized health checks before every session ensure each exercise is appropriate and safe for your body.</p></div></div>
+          <div class="feat-row"><div class="fi" style="background:var(--blue-faint)">🎙️</div><div class="ft"><h4>Voice Guidance Every Step</h4><p>Clear, friendly audio coaching walks you through every movement — no guessing, no confusion.</p></div></div>
+          <div class="feat-row"><div class="fi" style="background:var(--green-faint)">📱</div><div class="ft"><h4>Accessible Design</h4><p>Large buttons, high contrast, simple navigation — zero tech frustration, ever.</p></div></div>
+          <div class="feat-row"><div class="fi" style="background:var(--orange-faint)">🔥</div><div class="ft"><h4>Progress &amp; Streaks</h4><p>Daily streaks and milestones build the consistency that creates lasting results and confidence.</p></div></div>
         </div>
-        <div class="astore">
-          <div class="as-lbl">App Store</div>
-          <div class="as-name">ActiveAging — Senior Fitness Made Simple</div>
-          <div style="font-size:.78rem;color:var(--blue);margin-top:.3rem"><a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" style="color:var(--violet);text-decoration:none;font-weight:600;">View on the App Store →</a></div>
+        <div class="aud-phone"><div class="aud-ph-frame"><div class="aud-ph-screen"><img src="screenshots/screen8.png" alt="Workout details" /></div></div></div>
+      </div>
+      <div class="tab-panel" id="tab-centers">
+        <div class="aud-feats">
+          <div class="feat-row"><div class="fi" style="background:var(--violet-faint)">📋</div><div class="ft"><h4>Structured Workout Plans</h4><p>Give members 3 ready-made workout plans they can use independently between your scheduled classes.</p></div></div>
+          <div class="feat-row"><div class="fi" style="background:var(--green-faint)">✅</div><div class="ft"><h4>Evidence-Informed Content</h4><p>Every exercise is designed with senior mobility, safety, and dignity in mind. Beginner through Advanced levels.</p></div></div>
+          <div class="feat-row"><div class="fi" style="background:var(--blue-faint)">🆓</div><div class="ft"><h4>Completely Free for Members</h4><p>No subscription, no paywalls. Members download and use it at zero cost — extends your center's impact daily.</p></div></div>
+          <div class="feat-row"><div class="fi" style="background:var(--orange-faint)">👤</div><div class="ft"><h4>Trainer Code Connection</h4><p>Members enter your trainer code to connect directly, keeping you involved in their fitness journey.</p></div></div>
+        </div>
+        <div class="aud-phone"><div class="aud-ph-frame"><div class="aud-ph-screen"><img src="screenshots/screen6.png" alt="Workouts screen" /></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="inner">
+      <div class="stag">Features</div>
+      <h2>Everything needed to move<br/>safely — and keep moving.</h2>
+      <p class="sub">Six core features working together so seniors can exercise with confidence, every single day.</p>
+      <div class="feat-grid">
+        <div class="feat-card"><div class="fc-ico" style="background:var(--violet-faint)">🛡️</div><h3>Safety Onboarding</h3><p>Personalized health checks before every session ensure each exercise is appropriate for your current condition.</p></div>
+        <div class="feat-card"><div class="fc-ico" style="background:var(--blue-faint)">🎙️</div><h3>Voice Guidance</h3><p>Friendly audio coaching walks users through every movement step by step — like a personal trainer in your pocket.</p></div>
+        <div class="feat-card"><div class="fc-ico" style="background:var(--green-faint)">📱</div><h3>Accessible Design</h3><p>Large buttons, high contrast, and simple navigation specifically designed for seniors. No tech frustration.</p></div>
+        <div class="feat-card"><div class="fc-ico" style="background:var(--orange-faint)">🔥</div><h3>Progress &amp; Streaks</h3><p>Daily streaks and milestones build the consistency and motivation that creates lasting fitness habits.</p></div>
+        <div class="feat-card"><div class="fc-ico" style="background:var(--violet-faint)">📅</div><h3>Smart Scheduling</h3><p>Built-in calendar view to plan and track workouts week by week. See your progress at a glance.</p></div>
+        <div class="feat-card"><div class="fc-ico" style="background:var(--blue-faint)">🏋️</div><h3>Exercise Library</h3><p>9+ guided exercises spanning Beginner, Intermediate, and Advanced — all tailored for senior mobility and strength.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAROUSEL -->
+  <section class="carr-sec" id="screens" style="padding-top:5rem;padding-bottom:5rem;">
+    <div class="inner">
+      <div class="stag">App Screens</div>
+      <h2>See it in action.</h2>
+      <p class="sub">A clean, intuitive experience built for seniors — every screen thoughtfully designed.</p>
+    </div>
+    <div class="carr-wrap">
+      <div class="carr-track">
+        <div class="sc-thumb"><img src="screenshots/screen1.png" alt="Login" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen2.png" alt="Create Account" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen3.png" alt="Safety Info" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen4.png" alt="Go At Your Own Pace" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen5.png" alt="Home" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen6.png" alt="Workouts" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen7.png" alt="Exercises" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen8.png" alt="Workout Details" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen1.png" alt="Login" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen2.png" alt="Create Account" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen3.png" alt="Safety Info" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen4.png" alt="Go At Your Own Pace" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen5.png" alt="Home" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen6.png" alt="Workouts" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen7.png" alt="Exercises" /></div>
+        <div class="sc-thumb"><img src="screenshots/screen8.png" alt="Workout Details" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="inner">
+      <div class="stag">How It Works</div>
+      <h2>Up and moving in four steps.</h2>
+      <p class="sub">Getting started takes less than 2 minutes. No credit card, no subscription, no hassle.</p>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><h3>Download Free</h3><p>Get ActiveAging from the App Store — always free, no hidden costs ever.</p></div>
+        <div class="step"><div class="step-n">2</div><h3>Safety Check</h3><p>Complete a quick health questionnaire so the app tailors your experience safely.</p></div>
+        <div class="step"><div class="step-n">3</div><h3>Choose a Workout</h3><p>Browse workout plans and exercises at beginner, intermediate, or advanced levels.</p></div>
+        <div class="step"><div class="step-n">4</div><h3>Move &amp; Improve</h3><p>Follow voice guidance, build streaks, and track your progress over time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="test-sec">
+    <div class="inner">
+      <div class="stag">Testimonials</div>
+      <h2>Loved by seniors &amp;<br/>activity centers alike.</h2>
+      <p class="sub">Real stories from people using ActiveAging to stay active and independent.</p>
+      <div class="test-grid">
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"I'll finally be able to use the dumbbells lying around my house now!"</blockquote>
+          <div class="t-author"><div class="t-avatar">👵</div><div><div class="t-name">App Store User</div><div class="t-role">Senior User</div></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"I think this will definitely help a lot of seniors get more active!"</blockquote>
+          <div class="t-author"><div class="t-avatar">🏢</div><div><div class="t-name">Activity Center Director</div><div class="t-role">Austin, TX</div></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Movement is medicine and ActiveAging makes sure every senior can access it safely."</blockquote>
+          <div class="t-author"><div class="t-avatar">💪</div><div><div class="t-name">App Philosophy</div><div class="t-role">Designed with mobility &amp; dignity in mind</div></div></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta-sec" id="download">
-  <div class="inner">
-    <div class="cta-in">
-      <div class="stag" style="color:var(--violet-light);justify-content:center;"><span style="background:var(--violet-light)"></span>Get Started</div>
-      <h2>Start moving.<br/>Feel the difference.</h2>
-      <p class="sub" style="max-width:100%">No subscription. No credit card. No barriers.<br/>Safe, guided exercise built for seniors — free, always.</p>
-      <div class="cta-btns">
-        <a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="btn-white">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--violet)" style="vertical-align:middle;margin-right:4px"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Download on App Store
-        </a>
-        <a href="mailto:gautam.penna@gmail.com" class="btn-ghost">Contact for Activity Centers →</a>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="inner">
+      <div class="about-grid">
+        <div>
+          <div class="stag">About</div>
+          <h2>Built with purpose,<br/>designed with care.</h2>
+          <p class="about-body">ActiveAging was created to solve a real problem: seniors often lack safe, accessible, and guided exercise tools. Every design decision — from the large buttons to the voice coaching — was made with mobility and dignity in mind.</p>
+          <p class="about-body" style="margin-top:.85rem;">I noticed a real discrepancy between the resources available for young adults starting their fitness journey versus those available for senior citizens — especially people with mobility challenges, who are often left out entirely. With multiple years of experience in bodyweight training and strength conditioning, I felt compelled to do something about it. I've volunteered as a fitness instructor for a chair-based exercise class in Austin, TX, and saw firsthand how much seniors benefited from workouts tailored specifically to their circumstances — something that current apps simply don't do. That's how Active Aging was born. The majority of workouts on this app are custom-made with easy instructions and a UI designed with senior citizens in mind. And with the trainer feature, other centers can create custom exercises and encourage collective participation in workouts.</p>
+          <div class="tags">
+            <span class="tag">Swift / SwiftUI</span>
+            <span class="tag">iOS</span>
+            <span class="tag">AVFoundation</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">App Store</span>
+          </div>
+          <div style="margin-top:1.5rem;">
+            <a href="https://github.com/GautamPenna" target="_blank" class="btn-outline" style="font-size:.84rem;display:inline-flex;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              View on GitHub (@GautamPenna)
+            </a>
+          </div>
+        </div>
+        <div class="about-vis">
+          <div class="astat-grid">
+            <div class="astat"><div class="n">9+</div><div class="l">Guided Exercises</div></div>
+            <div class="astat"><div class="n">3</div><div class="l">Workout Plans</div></div>
+            <div class="astat"><div class="n">Free</div><div class="l">Always &amp; Forever</div></div>
+            <div class="astat"><div class="n">10+</div><div class="l">Downloads</div></div>
+          </div>
+          <div class="astore">
+            <div class="as-lbl">App Store</div>
+            <div class="as-name">ActiveAging — Senior Fitness Made Simple</div>
+            <div style="margin-top:.3rem"><a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" style="color:var(--violet);text-decoration:none;font-weight:600;font-size:.82rem;">View on the App Store →</a></div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
+  <!-- CTA -->
+  <section class="cta-sec" id="download">
+    <div class="inner">
+      <div class="cta-in">
+        <div class="stag" style="color:var(--violet-light);justify-content:center;"><span style="background:var(--violet-light)"></span>Get Started</div>
+        <h2>Start moving.<br/>Feel the difference.</h2>
+        <p class="sub" style="max-width:100%">No subscription. No credit card. No barriers.<br/>Safe, guided exercise built for seniors — free, always.</p>
+        <div class="cta-btns">
+          <a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="btn-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--violet)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download on App Store
+          </a>
+          <a href="mailto:gautam.penna@gmail.com" class="btn-ghost">Contact for Activity Centers →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="f-logo" onclick="showPage('main');window.scrollTo(0,0)">Active<span>Aging</span></span>
+    <span>© 2026 ActiveAging · Safe · Guided · Empowering</span>
+    <nav class="f-nav">
+      <a onclick="showPage('legal','privacy')">Privacy Policy</a>
+      <a onclick="showPage('legal','terms')">Terms of Use</a>
+      <a href="https://github.com/GautamPenna" target="_blank">GitHub</a>
+    </nav>
+  </footer>
+
+</div><!-- /page-main -->
+
+
+<!-- ═══════════════════════════════════════
+     LEGAL PAGE
+═══════════════════════════════════════ -->
+<div id="page-legal">
+
+  <div class="legal-hero">
+    <div class="legal-hero-inner">
+      <button class="legal-back" onclick="showPage('main')">
+        ← Back to ActiveAging
+      </button>
+      <h1>Legal</h1>
+      <p>Active Aging · Last updated: February 16, 2026</p>
+    </div>
+    <div class="legal-tabs" style="background:var(--dark);padding-bottom:0;">
+      <button class="legal-tab active" id="ltab-privacy" onclick="setLegalTab('privacy')">Privacy Policy</button>
+      <button class="legal-tab" id="ltab-terms" onclick="setLegalTab('terms')">Terms &amp; Conditions</button>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="f-logo">Active<span>Aging</span></div>
-  <span>© 2026 ActiveAging · Safe · Guided · Empowering</span>
-  <nav class="f-nav">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Use</a>
-    <a href="https://github.com/GautamPenna" target="_blank">GitHub</a>
-  </nav>
-</footer>
+  <div class="legal-body">
+
+    <!-- ── PRIVACY POLICY ── -->
+    <div class="legal-doc active" id="ldoc-privacy">
+      <div class="legal-updated">📅 Last updated: February 16, 2026</div>
+
+      <h2>Privacy Policy</h2>
+      <p>Active Aging ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you use the Active Aging iOS application ("the App"). By using the App, you agree to the practices described in this policy.</p>
+
+      <h2>Information We Collect</h2>
+      <p>We collect only the information necessary to provide and improve the App. Specifically, we collect:</p>
+      <ul>
+        <li><strong>Account Information:</strong> When you create an account, we collect your full name, username, and password. A valid account is required to use the App.</li>
+        <li><strong>Usage Data:</strong> We collect information about how you use the App, including which exercises and workout plans you access, session frequency, and progress data such as streaks and milestones. This helps us improve the App experience over time.</li>
+      </ul>
+      <p>We do <strong>not</strong> collect your email address, date of birth, precise location, health or medical records, payment information, or any other sensitive personal data beyond what is listed above.</p>
+
+      <h2>How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Create and manage your account</li>
+        <li>Personalize your in-app experience (e.g., tracking streaks and progress)</li>
+        <li>Improve the App's content, features, and usability</li>
+        <li>Respond to your questions or support requests</li>
+      </ul>
+      <p>We do not use your information for advertising, marketing to third parties, or any form of automated profiling.</p>
+
+      <h2>Data Storage and Third-Party Services</h2>
+      <p>Your account information and usage data are stored securely using <strong>Google Firebase</strong>, a backend cloud platform provided by Google LLC. Firebase acts as our data processor and stores data on our behalf. Firebase is bound by Google's data processing terms and applicable privacy laws.</p>
+      <p>We do not sell, rent, or share your personal data with any other third parties. Firebase is the only external service that processes your data.</p>
+      <p>For more information on how Firebase handles data, please review <a href="https://firebase.google.com/support/privacy" target="_blank">Google Firebase's Privacy Policy</a>.</p>
+
+      <h2>Data Security</h2>
+      <p>We take reasonable technical measures to protect your information from unauthorized access, loss, or misuse. Your password is stored using secure hashing practices. However, no method of electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2>Data Retention</h2>
+      <p>We retain your account and usage data for as long as your account is active. If you wish to delete your account and associated data, please contact us at the email below and we will process your request promptly.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Active Aging is designed for users aged 18 and older. We do not knowingly collect personal information from anyone under the age of 18. If you believe a minor has provided us with personal information, please contact us immediately so we can remove it.</p>
+
+      <h2>Your Rights</h2>
+      <p>Depending on your location, you may have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion of your data</li>
+        <li>Object to or restrict certain types of processing</li>
+      </ul>
+      <p>To exercise any of these rights, please contact us using the information below.</p>
+
+      <h2>Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time. If we make material changes, we will update the "Last updated" date at the top of this page. Continued use of the App after any changes constitutes your acceptance of the revised policy.</p>
+
+      <div class="legal-contact-box">
+        <h3>Contact Us</h3>
+        <p>If you have any questions about this Privacy Policy or how your data is handled, please contact us at:<br/>
+        <a href="mailto:gautam.penna@gmail.com">gautam.penna@gmail.com</a></p>
+      </div>
+    </div>
+
+    <!-- ── TERMS & CONDITIONS ── -->
+    <div class="legal-doc" id="ldoc-terms">
+      <div class="legal-updated">📅 Last updated: February 16, 2026</div>
+
+      <h2>Terms and Conditions</h2>
+      <p>Please read these Terms and Conditions carefully before using the Active Aging application.</p>
+
+      <h2>Interpretation and Definitions</h2>
+      <h3>Interpretation</h3>
+      <p>Words whose initial letters are capitalized have meanings defined under the following conditions. These definitions apply regardless of whether they appear in singular or plural form.</p>
+
+      <h3>Definitions</h3>
+      <p>For the purposes of these Terms and Conditions:</p>
+      <ul>
+        <li><strong>Application</strong> means the Active Aging software program, available for download on iOS devices via the Apple App Store.</li>
+        <li><strong>Application Store</strong> means the Apple App Store, operated by Apple Inc., through which the Application is distributed.</li>
+        <li><strong>Affiliate</strong> means an entity that controls, is controlled by, or is under common control with a party, where "control" means ownership of 50% or more of shares or voting authority.</li>
+        <li><strong>Country</strong> refers to Texas, United States.</li>
+        <li><strong>Company</strong> (referred to as "the Company", "We", "Us", or "Our") refers to Active Aging.</li>
+        <li><strong>Device</strong> means any iOS-compatible device capable of accessing the Service, such as an iPhone or iPad.</li>
+        <li><strong>Service</strong> refers to the Application.</li>
+        <li><strong>Terms and Conditions</strong> (also referred to as "Terms") means this agreement, which governs your access to and use of the Service.</li>
+        <li><strong>You</strong> means the individual accessing or using the Service.</li>
+      </ul>
+
+      <h2>Acknowledgment</h2>
+      <p>These Terms govern the use of the Service and constitute the agreement between You and the Company. By accessing or using the Service, You agree to be bound by these Terms. If You disagree with any part of these Terms, You may not access the Service.</p>
+      <p>You represent that you are at least 18 years of age. The Company does not permit those under 18 to use the Service.</p>
+      <p>Your use of the Service is also subject to our Privacy Policy, which describes how we collect, use, and protect your personal information.</p>
+
+      <h2>Health and Safety Disclaimer</h2>
+      <p>Active Aging provides exercise guidance for older adults. The content in this Application is for general informational and fitness purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. <strong>Always consult with your healthcare provider before beginning any new exercise program.</strong> Stop immediately if you experience pain, dizziness, shortness of breath, or unusual discomfort during any exercise.</p>
+
+      <h2>Links to Other Websites</h2>
+      <p>The Service may contain links to third-party websites or services not owned or controlled by the Company. The Company has no control over and assumes no responsibility for the content, privacy policies, or practices of any third-party websites. We strongly advise You to review the terms and privacy policies of any third-party sites you visit.</p>
+
+      <h2>Termination</h2>
+      <p>We may terminate or suspend Your access immediately, without prior notice or liability, for any reason, including if You breach these Terms. Upon termination, Your right to use the Service ceases immediately.</p>
+
+      <h2>Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, the Company shall not be liable for any special, incidental, indirect, or consequential damages arising out of or related to your use of or inability to use the Service. In no event shall the Company's total liability exceed 100 USD.</p>
+
+      <h2>"AS IS" and "AS AVAILABLE" Disclaimer</h2>
+      <p>The Service is provided "AS IS" and "AS AVAILABLE" without warranty of any kind. The Company expressly disclaims all warranties, whether express, implied, or statutory, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or free of harmful components.</p>
+
+      <h2>Governing Law</h2>
+      <p>These Terms shall be governed by the laws of the State of Texas, United States, excluding its conflict of law rules. Your use of the Application may also be subject to other applicable local, state, or federal laws.</p>
+
+      <h2>Disputes Resolution</h2>
+      <p>If You have any concern or dispute about the Service, You agree to first attempt to resolve it informally by contacting the Company at the email address below.</p>
+
+      <h2>United States Legal Compliance</h2>
+      <p>You represent and warrant that (i) You are not located in a country subject to a United States government embargo or designated as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.</p>
+
+      <h2>Severability and Waiver</h2>
+      <h3>Severability</h3>
+      <p>If any provision of these Terms is held unenforceable or invalid, it will be modified to accomplish its objectives to the greatest extent possible, and the remaining provisions will continue in full force.</p>
+      <h3>Waiver</h3>
+      <p>Failure to exercise a right or require performance of an obligation under these Terms shall not affect a party's ability to exercise such right or require such performance at a later time.</p>
+
+      <h2>Changes to These Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. If a revision is material, we will make reasonable efforts to provide at least 30 days' notice before new terms take effect. Continued use of the Service after revisions become effective constitutes acceptance of the new Terms.</p>
+
+      <div class="legal-contact-box">
+        <h3>Contact Us</h3>
+        <p>If you have any questions about these Terms and Conditions, please contact us at:<br/>
+        <a href="mailto:gautam.penna@gmail.com">gautam.penna@gmail.com</a></p>
+      </div>
+    </div>
+
+  </div><!-- /legal-body -->
+
+  <!-- Legal Footer -->
+  <footer>
+    <span class="f-logo" onclick="showPage('main');window.scrollTo(0,0)">Active<span>Aging</span></span>
+    <span>© 2026 ActiveAging · Safe · Guided · Empowering</span>
+    <nav class="f-nav">
+      <a onclick="setLegalTab('privacy')">Privacy Policy</a>
+      <a onclick="setLegalTab('terms')">Terms of Use</a>
+      <a href="https://github.com/GautamPenna" target="_blank">GitHub</a>
+    </nav>
+  </footer>
+
+</div><!-- /page-legal -->
+
 
 <script>
-  // Nav shadow
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+  // ── Nav scroll shadow
+  const navEl = document.getElementById('nav');
+  window.addEventListener('scroll', () => navEl.classList.toggle('scrolled', scrollY > 20));
 
-  // Tabs
+  // ── Page switching (main ↔ legal)
+  function showPage(page, legalTab) {
+    document.getElementById('page-main').style.display  = page === 'main'  ? 'block' : 'none';
+    document.getElementById('page-legal').style.display = page === 'legal' ? 'block' : 'none';
+    window.scrollTo(0, 0);
+    if (page === 'legal' && legalTab) setLegalTab(legalTab);
+  }
+
+  // ── Scroll to section on main page
+  function scrollToId(id) {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+  }
+
+  // ── Audience tabs
   function setTab(id, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -613,11 +776,36 @@
     document.getElementById('tab-' + id).classList.add('active');
   }
 
-  // Scroll-reveal
+  // ── Legal doc tabs
+  function setLegalTab(tab) {
+    document.querySelectorAll('.legal-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.legal-doc').forEach(d => d.classList.remove('active'));
+    document.getElementById('ltab-' + tab).classList.add('active');
+    document.getElementById('ldoc-' + tab).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── Scroll-reveal on main page
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.feat-card,.step,.test-card,.feat-row').forEach(el => {
-    el.style.opacity='0'; el.st
+    el.style.opacity='0'; el.style.transform='translateY(18px)';
+    el.style.transition='opacity .45s ease, transform .45s ease';
+    io.observe(el);
+  });
+
+  // ── Handle direct hash links (e.g. #privacy, #terms from App Store)
+  function handleHash() {
+    const h = window.location.hash;
+    if (h === '#privacy') { showPage('legal', 'privacy'); }
+    else if (h === '#terms') { showPage('legal', 'terms'); }
+  }
+  handleHash();
+  window.addEventListener('hashchange', handleHash);
+</script>
+
+</body>
+</html>
