@@ -451,6 +451,55 @@
       .contact-card { padding: 1.5rem; }
     }
 
+    /* ── HAMBURGER MENU ── */
+    .hamburger {
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px; cursor: pointer;
+      background: none; border: none; padding: 4px; border-radius: 8px;
+      transition: background .2s;
+    }
+    .hamburger:hover { background: var(--light); }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--dark); border-radius: 2px;
+      transition: all .3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Slide-down menu */
+    .menu-drawer {
+      position: fixed; top: 66px; left: 0; right: 0; z-index: 998;
+      background: #fff; border-bottom: 1px solid var(--border);
+      box-shadow: var(--sh-md);
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, opacity .25s ease;
+      opacity: 0;
+    }
+    .menu-drawer.open { max-height: 500px; opacity: 1; }
+    .menu-drawer-inner {
+      padding: 1.25rem 5vw 1.75rem;
+      display: flex; flex-direction: column; gap: .15rem;
+    }
+    .menu-item {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .85rem 1rem; border-radius: 12px;
+      font-size: .95rem; font-weight: 600; color: var(--dark);
+      cursor: pointer; transition: background .18s, color .18s;
+      border: none; background: none; font-family: 'Sora', sans-serif;
+      text-align: left; width: 100%;
+    }
+    .menu-item:hover { background: var(--violet-faint); color: var(--violet); }
+    .menu-item .mi-icon { font-size: 1.1rem; width: 28px; text-align: center; }
+    .menu-divider { height: 1px; background: var(--border); margin: .4rem 0; }
+    .menu-item.download {
+      background: var(--violet); color: #fff !important;
+      margin-top: .5rem; justify-content: center;
+      box-shadow: var(--sh-v);
+    }
+    .menu-item.download:hover { background: var(--violet-dark); }
+
     /* ── RESPONSIVE (legal-tabs fix) ── */
   
     @media(max-width:900px) {
@@ -483,31 +532,38 @@
      NAV (shared)
 ═══════════════════════════════════════ -->
 <nav id="nav">
-  <span class="nav-logo" onclick="showPage('main')">Active<span>Aging</span></span>
-  <!-- Main page nav -->
-  <ul class="nav-links" id="nav-main-links">
-    <li><a onclick="showPage('main');scrollToId('audience')">Features</a></li>
-    <li><a onclick="showPage('main');scrollToId('about')">About</a></li>
-    <li><a onclick="showPage('contact')">Contact</a></li>
-    <li style="width:1px;height:20px;background:var(--border);margin:0 .25rem;"></li>
-    <li><a onclick="showPage('legal','privacy')" style="color:var(--mid);font-size:.82rem;font-weight:600;">Privacy</a></li>
-    <li><a onclick="showPage('legal','terms')" style="color:var(--mid);font-size:.82rem;font-weight:600;">Terms</a></li>
-    <li><a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="btn-nav">Download Free</a></li>
-  </ul>
-  <!-- Legal page nav -->
-  <ul class="nav-links" id="nav-legal-links" style="display:none;">
-    <li><a onclick="setLegalTab('privacy')" id="nav-privacy-link">Privacy Policy</a></li>
-    <li><a onclick="setLegalTab('terms')" id="nav-terms-link">Terms &amp; Conditions</a></li>
-    <li style="width:1px;height:20px;background:var(--border);margin:0 .25rem;"></li>
-    <li><a onclick="showPage('main')" style="color:var(--muted);font-size:.8rem;">← Back to App</a></li>
-  </ul>
-  <!-- Contact page nav -->
-  <ul class="nav-links" id="nav-contact-links" style="display:none;">
-    <li><a onclick="showPage('contact')" style="color:var(--violet);font-weight:700;">Contact</a></li>
-    <li style="width:1px;height:20px;background:var(--border);margin:0 .25rem;"></li>
-    <li><a onclick="showPage('main')" style="color:var(--muted);font-size:.8rem;">← Back to App</a></li>
-  </ul>
+  <span class="nav-logo" onclick="showPage('main');closeMenu()">Active<span>Aging</span></span>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Slide-down menu drawer -->
+<div class="menu-drawer" id="menu-drawer">
+  <div class="menu-drawer-inner">
+    <button class="menu-item" onclick="showPage('main');scrollToId('audience');closeMenu()">
+      <span class="mi-icon">🏠</span> Home
+    </button>
+    <button class="menu-item" onclick="showPage('main');scrollToId('about');closeMenu()">
+      <span class="mi-icon">👤</span> About
+    </button>
+    <button class="menu-item" onclick="showPage('contact');closeMenu()">
+      <span class="mi-icon">✉️</span> Contact
+    </button>
+    <div class="menu-divider"></div>
+    <button class="menu-item" onclick="showPage('legal','privacy');closeMenu()">
+      <span class="mi-icon">🔒</span> Privacy Policy
+    </button>
+    <button class="menu-item" onclick="showPage('legal','terms');closeMenu()">
+      <span class="mi-icon">📄</span> Terms of Use
+    </button>
+    <div class="menu-divider"></div>
+    <a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="menu-item download" onclick="closeMenu()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download Free on App Store
+    </a>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════
      MAIN PAGE
@@ -591,7 +647,7 @@
           <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem;">
             <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--mid);">
               <span style="font-size:1rem;">📧</span>
-              <a href="mailto:gautam.penna@gmail.com" style="color:var(--violet);font-weight:600;text-decoration:none;">gautam.penna@gmail.com</a>
+              <a href="/cdn-cgi/l/email-protection#4d2a2c38392c20633d2823232c0d2a202c2421632e2220" style="color:var(--violet);font-weight:600;text-decoration:none;"><span class="__cf_email__" data-cfemail="7710160203161a59071219191637101a161e1b5914181a">[email&#160;protected]</span></a>
             </div>
             <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--mid);">
               <span style="font-size:1rem;">📱</span>
@@ -858,15 +914,8 @@
 
       </div>
 
-      <!-- Info cards -->
-      <div class="contact-info">
-        <div class="contact-info-card">
-          <div class="cic-icon">📧</div>
-          <div>
-            <div class="cic-title">Email Directly</div>
-            <div class="cic-text">Prefer email? Reach me at <a href="/cdn-cgi/l/email-protection#355254404154581b45505b5b54755258545c591b565a58"><span class="__cf_email__" data-cfemail="81e6e0f4f5e0ecaff1e4efefe0c1e6ece0e8edafe2eeec">[email&#160;protected]</span></a></div>
-          </div>
-        </div>
+      <!-- Info card -->
+      <div style="margin-top:1.5rem;">
         <div class="contact-info-card">
           <div class="cic-icon">⏱️</div>
           <div>
@@ -897,14 +946,29 @@
   const navEl = document.getElementById('nav');
   window.addEventListener('scroll', () => navEl.classList.toggle('scrolled', scrollY > 20));
 
+  // ── Hamburger menu
+  function toggleMenu() {
+    const drawer = document.getElementById('menu-drawer');
+    const burger = document.getElementById('hamburger');
+    drawer.classList.toggle('open');
+    burger.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('menu-drawer').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const drawer = document.getElementById('menu-drawer');
+    const burger = document.getElementById('hamburger');
+    if (!drawer.contains(e.target) && !burger.contains(e.target)) closeMenu();
+  });
+
   // ── Page switching: main / legal / contact
   function showPage(page, legalTab) {
     document.getElementById('page-main').style.display    = page === 'main'    ? 'block' : 'none';
     document.getElementById('page-legal').style.display   = page === 'legal'   ? 'block' : 'none';
     document.getElementById('page-contact').style.display = page === 'contact' ? 'block' : 'none';
-    document.getElementById('nav-main-links').style.display    = page === 'main'    ? 'flex' : 'none';
-    document.getElementById('nav-legal-links').style.display   = page === 'legal'   ? 'flex' : 'none';
-    document.getElementById('nav-contact-links').style.display = page === 'contact' ? 'flex' : 'none';
     window.scrollTo(0, 0);
     if (page === 'legal' && legalTab) setLegalTab(legalTab);
   }
@@ -931,8 +995,6 @@
     document.querySelectorAll('.legal-doc').forEach(d => d.classList.remove('active'));
     document.getElementById('ltab-' + tab).classList.add('active');
     document.getElementById('ldoc-' + tab).classList.add('active');
-    document.getElementById('nav-privacy-link').style.color = tab === 'privacy' ? 'var(--violet)' : '';
-    document.getElementById('nav-terms-link').style.color   = tab === 'terms'   ? 'var(--violet)' : '';
     window.scrollTo(0, 0);
   }
 
@@ -986,47 +1048,3 @@
 </script>
 </body>
 </html>
-
-  // ── Page switching (main ↔ legal)
-  function showPage(page, legalTab) {
-    document.getElementById('page-main').style.display  = page === 'main'  ? 'block' : 'none';
-    document.getElementById('page-legal').style.display = page === 'legal' ? 'block' : 'none';
-    // Swap nav
-    document.getElementById('nav-main-links').style.display  = page === 'main'  ? 'flex' : 'none';
-    document.getElementById('nav-legal-links').style.display = page === 'legal' ? 'flex' : 'none';
-    window.scrollTo(0, 0);
-    if (page === 'legal' && legalTab) setLegalTab(legalTab);
-  }
-
-  // ── Scroll to section on main page
-  function scrollToId(id) {
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 50);
-  }
-
-  // ── Audience tabs
-  function setTab(id, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('tab-' + id).classList.add('active');
-  }
-
-  // ── Legal doc tabs
-  function setLegalTab(tab) {
-    document.querySelectorAll('.legal-tab').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.legal-doc').forEach(d => d.classList.remove('active'));
-    document.getElementById('ltab-' + tab).classList.add('active');
-    document.getElementById('ldoc-' + tab).classList.add('active');
-    // Highlight active in nav
-    document.getElementById('nav-privacy-link').style.color = tab === 'privacy' ? 'var(--violet)' : '';
-    document.getElementById('nav-terms-link').style.color   = tab === 'terms'   ? 'var(--violet)' : '';
-    window.scrollTo(0, 0);
-  }
-
-  // ── Scroll-reveal on main page
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.sty
