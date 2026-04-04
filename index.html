@@ -329,7 +329,130 @@
     }
     .legal-back:hover { color: #fff; }
 
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════════════════
+       CONTACT PAGE
+    ══════════════════════════════════════════ */
+    #page-contact { display: none; }
+
+    .contact-page { padding-top: 66px; min-height: 100vh; background: var(--light); }
+
+    .contact-hero {
+      background: var(--dark); padding: 5rem 5vw 4rem;
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .contact-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(201,79,216,.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .contact-hero-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+    .contact-hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.04em; margin-bottom: .6rem; animation: none; }
+    .contact-hero p { color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.7; }
+
+    .contact-body { max-width: 680px; margin: 0 auto; padding: 3.5rem 5vw 6rem; }
+
+    /* The form card */
+    .contact-card {
+      background: #fff; border-radius: 24px;
+      padding: 2.5rem; box-shadow: var(--sh-lg);
+      border: 1px solid var(--border);
+    }
+
+    .form-row { margin-bottom: 1.4rem; }
+    .form-row label {
+      display: block; font-size: .8rem; font-weight: 700;
+      color: var(--dark); margin-bottom: .45rem; letter-spacing: .01em;
+    }
+    .form-row label span { color: var(--violet); margin-left: 2px; }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: .8rem 1rem;
+      border: 1.5px solid var(--border); border-radius: 10px;
+      font-family: 'Sora', sans-serif; font-size: .88rem;
+      color: var(--dark); background: var(--light);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none; appearance: none; -webkit-appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 3px rgba(201,79,216,.12);
+      background: #fff;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238E8E93' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem; cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+    /* Two-col row */
+    .form-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    /* Radio group */
+    .radio-group { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .1rem; }
+    .radio-option { display: none; }
+    .radio-label {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .55rem 1.1rem; border-radius: 50px;
+      border: 1.5px solid var(--border); cursor: pointer;
+      font-size: .82rem; font-weight: 600; color: var(--muted);
+      transition: all .2s; user-select: none;
+    }
+    .radio-option:checked + .radio-label {
+      border-color: var(--violet); color: var(--violet);
+      background: var(--violet-faint);
+    }
+    .radio-label::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      border: 2px solid currentColor; flex-shrink: 0;
+    }
+    .radio-option:checked + .radio-label::before { background: var(--violet); border-color: var(--violet); }
+
+    /* Submit button */
+    .form-submit {
+      width: 100%; padding: .95rem; border-radius: 50px;
+      background: var(--violet); color: #fff;
+      font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
+      border: none; cursor: pointer;
+      box-shadow: var(--sh-v); transition: transform .2s, box-shadow .2s;
+      margin-top: .5rem;
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(201,79,216,.4); }
+    .form-submit:active { transform: translateY(0); }
+
+    /* Success state */
+    .form-success {
+      display: none; text-align: center; padding: 3rem 1rem;
+    }
+    .form-success .success-icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--green-faint); color: var(--green);
+      font-size: 2rem; display: flex; align-items: center;
+      justify-content: center; margin: 0 auto 1.25rem;
+    }
+    .form-success h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: .5rem; }
+    .form-success p { color: var(--muted); font-size: .92rem; line-height: 1.6; }
+
+    /* Info cards below form */
+    .contact-info { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .contact-info-card {
+      background: #fff; border-radius: 16px; padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border); display: flex; align-items: flex-start; gap: .85rem;
+    }
+    .cic-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .cic-title { font-size: .85rem; font-weight: 700; margin-bottom: .2rem; }
+    .cic-text { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+    .cic-text a { color: var(--violet); text-decoration: none; font-weight: 600; }
+
+    @media(max-width:600px) {
+      .form-cols { grid-template-columns: 1fr; }
+      .contact-info { grid-template-columns: 1fr; }
+      .contact-card { padding: 1.5rem; }
+    }
+
+    /* ── RESPONSIVE (legal-tabs fix) ── */
+  
     @media(max-width:900px) {
       .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
       .hero-sub { max-width: 100%; }
@@ -363,19 +486,24 @@
   <span class="nav-logo" onclick="showPage('main')">Active<span>Aging</span></span>
   <!-- Main page nav -->
   <ul class="nav-links" id="nav-main-links">
-    <li><a onclick="showPage('main');scrollToId('audience')">Who It's For</a></li>
-    <li><a onclick="showPage('main');scrollToId('features')">Features</a></li>
-    <li><a onclick="showPage('main');scrollToId('screens')">Screenshots</a></li>
+    <li><a onclick="showPage('main');scrollToId('audience')">Features</a></li>
     <li><a onclick="showPage('main');scrollToId('about')">About</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
     <li style="width:1px;height:20px;background:var(--border);margin:0 .25rem;"></li>
-    <li><a onclick="showPage('legal','privacy')" style="color:var(--muted);font-size:.8rem;">Privacy</a></li>
-    <li><a onclick="showPage('legal','terms')" style="color:var(--muted);font-size:.8rem;">Terms</a></li>
+    <li><a onclick="showPage('legal','privacy')" style="color:var(--mid);font-size:.82rem;font-weight:600;">Privacy</a></li>
+    <li><a onclick="showPage('legal','terms')" style="color:var(--mid);font-size:.82rem;font-weight:600;">Terms</a></li>
     <li><a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="btn-nav">Download Free</a></li>
   </ul>
-  <!-- Legal page nav (shown when on legal page) -->
+  <!-- Legal page nav -->
   <ul class="nav-links" id="nav-legal-links" style="display:none;">
     <li><a onclick="setLegalTab('privacy')" id="nav-privacy-link">Privacy Policy</a></li>
     <li><a onclick="setLegalTab('terms')" id="nav-terms-link">Terms &amp; Conditions</a></li>
+    <li style="width:1px;height:20px;background:var(--border);margin:0 .25rem;"></li>
+    <li><a onclick="showPage('main')" style="color:var(--muted);font-size:.8rem;">← Back to App</a></li>
+  </ul>
+  <!-- Contact page nav -->
+  <ul class="nav-links" id="nav-contact-links" style="display:none;">
+    <li><a onclick="showPage('contact')" style="color:var(--violet);font-weight:700;">Contact</a></li>
     <li style="width:1px;height:20px;background:var(--border);margin:0 .25rem;"></li>
     <li><a onclick="showPage('main')" style="color:var(--muted);font-size:.8rem;">← Back to App</a></li>
   </ul>
@@ -392,20 +520,13 @@
     <div class="blob blob-2"></div>
     <div class="hero-inner">
       <div>
-        <div class="hero-badge">Now Available on the App Store</div>
-        <h1>Stay Active.<br/><em>Feel Strong.</em></h1>
-        <p class="hero-sub">Warm, safe, guided exercise — designed with seniors in mind, trusted by the people who support them. Completely free.</p>
+        <h1><strong>Active Aging</strong></h1>
+        <p class="hero-sub">Safe, guided exercises designed for seniors, regardless of mobility challenges.</p>
         <div class="hero-actions">
           <a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             Download Free
           </a>
-          <a onclick="showPage('main');scrollToId('features')" class="btn-outline" style="cursor:pointer;">See Features →</a>
-        </div>
-        <div class="hero-stats">
-          <div><div class="stat-num">9+</div><div class="stat-lbl">Guided Exercises</div></div>
-          <div><div class="stat-num">3</div><div class="stat-lbl">Workout Plans</div></div>
-          <div><div class="stat-num">100%</div><div class="stat-lbl">Free to Use</div></div>
         </div>
       </div>
       <div class="hero-vis">
@@ -419,17 +540,13 @@
     </div>
   </section>
 
-  <!-- AUDIENCE TABS -->
+  <!-- WHO IT'S FOR — seniors only -->
   <section class="aud-sec" id="audience">
     <div class="inner">
       <div class="stag">Who It's For</div>
-      <h2>Built for two audiences,<br/>perfect for both.</h2>
-      <p class="sub">Whether you're a senior looking to stay active, or a center director seeking a trusted fitness tool — ActiveAging was made for you.</p>
-      <div class="tab-nav">
-        <button class="tab-btn active" onclick="setTab('seniors',this)">👴 For Seniors</button>
-        <button class="tab-btn" onclick="setTab('centers',this)">🏢 For Activity Centers</button>
-      </div>
-      <div class="tab-panel active" id="tab-seniors">
+      <h2>Built for seniors,<br/>every step of the way.</h2>
+      <p class="sub">No experience needed. Active Aging makes it easy and safe to exercise — with a friendly voice guiding every move.</p>
+      <div class="tab-panel active" id="tab-seniors" style="display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-top:2rem;">
         <div class="aud-feats">
           <div class="feat-row"><div class="fi" style="background:var(--violet-faint)">🛡️</div><div class="ft"><h4>Safety Onboarding First</h4><p>Personalized health checks before every session ensure each exercise is appropriate and safe for your body.</p></div></div>
           <div class="feat-row"><div class="fi" style="background:var(--blue-faint)">🎙️</div><div class="ft"><h4>Voice Guidance Every Step</h4><p>Clear, friendly audio coaching walks you through every movement — no guessing, no confusion.</p></div></div>
@@ -438,159 +555,51 @@
         </div>
         <div class="aud-phone"><div class="aud-ph-frame"><div class="aud-ph-screen"><img src="screenshots/screen8.png" alt="Workout details" /></div></div></div>
       </div>
-      <div class="tab-panel" id="tab-centers">
-        <div class="aud-feats">
-          <div class="feat-row"><div class="fi" style="background:var(--violet-faint)">📋</div><div class="ft"><h4>Structured Workout Plans</h4><p>Give members 3 ready-made workout plans they can use independently between your scheduled classes.</p></div></div>
-          <div class="feat-row"><div class="fi" style="background:var(--green-faint)">✅</div><div class="ft"><h4>Evidence-Informed Content</h4><p>Every exercise is designed with senior mobility, safety, and dignity in mind. Beginner through Advanced levels.</p></div></div>
-          <div class="feat-row"><div class="fi" style="background:var(--blue-faint)">🆓</div><div class="ft"><h4>Completely Free for Members</h4><p>No subscription, no paywalls. Members download and use it at zero cost — extends your center's impact daily.</p></div></div>
-          <div class="feat-row"><div class="fi" style="background:var(--orange-faint)">👤</div><div class="ft"><h4>Trainer Code Connection</h4><p>Members enter your trainer code to connect directly, keeping you involved in their fitness journey.</p></div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS + ABOUT side by side -->
+  <section id="about" style="background:var(--light);">
+    <div class="inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+
+        <!-- Testimonials column -->
+        <div>
+          <div class="stag">What People Are Saying</div>
+          <h2 style="margin-bottom:1.5rem;">Loved by seniors.</h2>
+          <div style="display:flex;flex-direction:column;gap:1.1rem;">
+            <div class="test-card">
+              <div class="stars">★★★★★</div>
+              <blockquote>"I'll finally be able to use the dumbbells lying around my house now!"</blockquote>
+              <div class="t-author"><div class="t-avatar">👵</div><div><div class="t-name">App Store User</div><div class="t-role">Senior User</div></div></div>
+            </div>
+            <div class="test-card">
+              <div class="stars">★★★★★</div>
+              <blockquote>"Movement is medicine and Active Aging makes sure every senior can access it safely."</blockquote>
+              <div class="t-author"><div class="t-avatar">💪</div><div><div class="t-name">App Philosophy</div><div class="t-role">Designed with mobility &amp; dignity in mind</div></div></div>
+            </div>
+          </div>
         </div>
-        <div class="aud-phone"><div class="aud-ph-frame"><div class="aud-ph-screen"><img src="screenshots/screen6.png" alt="Workouts screen" /></div></div></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FEATURES -->
-  <section id="features">
-    <div class="inner">
-      <div class="stag">Features</div>
-      <h2>Everything needed to move<br/>safely — and keep moving.</h2>
-      <p class="sub">Six core features working together so seniors can exercise with confidence, every single day.</p>
-      <div class="feat-grid">
-        <div class="feat-card"><div class="fc-ico" style="background:var(--violet-faint)">🛡️</div><h3>Safety Onboarding</h3><p>Personalized health checks before every session ensure each exercise is appropriate for your current condition.</p></div>
-        <div class="feat-card"><div class="fc-ico" style="background:var(--blue-faint)">🎙️</div><h3>Voice Guidance</h3><p>Friendly audio coaching walks users through every movement step by step — like a personal trainer in your pocket.</p></div>
-        <div class="feat-card"><div class="fc-ico" style="background:var(--green-faint)">📱</div><h3>Accessible Design</h3><p>Large buttons, high contrast, and simple navigation specifically designed for seniors. No tech frustration.</p></div>
-        <div class="feat-card"><div class="fc-ico" style="background:var(--orange-faint)">🔥</div><h3>Progress &amp; Streaks</h3><p>Daily streaks and milestones build the consistency and motivation that creates lasting fitness habits.</p></div>
-        <div class="feat-card"><div class="fc-ico" style="background:var(--violet-faint)">📅</div><h3>Smart Scheduling</h3><p>Built-in calendar view to plan and track workouts week by week. See your progress at a glance.</p></div>
-        <div class="feat-card"><div class="fc-ico" style="background:var(--blue-faint)">🏋️</div><h3>Exercise Library</h3><p>9+ guided exercises spanning Beginner, Intermediate, and Advanced — all tailored for senior mobility and strength.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CAROUSEL -->
-  <section class="carr-sec" id="screens" style="padding-top:5rem;padding-bottom:5rem;">
-    <div class="inner">
-      <div class="stag">App Screens</div>
-      <h2>See it in action.</h2>
-      <p class="sub">A clean, intuitive experience built for seniors — every screen thoughtfully designed.</p>
-    </div>
-    <div class="carr-wrap">
-      <div class="carr-track">
-        <div class="sc-thumb"><img src="screenshots/screen1.png" alt="Login" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen2.png" alt="Create Account" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen3.png" alt="Safety Info" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen4.png" alt="Go At Your Own Pace" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen5.png" alt="Home" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen6.png" alt="Workouts" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen7.png" alt="Exercises" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen8.png" alt="Workout Details" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen1.png" alt="Login" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen2.png" alt="Create Account" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen3.png" alt="Safety Info" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen4.png" alt="Go At Your Own Pace" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen5.png" alt="Home" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen6.png" alt="Workouts" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen7.png" alt="Exercises" /></div>
-        <div class="sc-thumb"><img src="screenshots/screen8.png" alt="Workout Details" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how">
-    <div class="inner">
-      <div class="stag">How It Works</div>
-      <h2>Up and moving in four steps.</h2>
-      <p class="sub">Getting started takes less than 2 minutes. No credit card, no subscription, no hassle.</p>
-      <div class="steps">
-        <div class="step"><div class="step-n">1</div><h3>Download Free</h3><p>Get ActiveAging from the App Store — always free, no hidden costs ever.</p></div>
-        <div class="step"><div class="step-n">2</div><h3>Safety Check</h3><p>Complete a quick health questionnaire so the app tailors your experience safely.</p></div>
-        <div class="step"><div class="step-n">3</div><h3>Choose a Workout</h3><p>Browse workout plans and exercises at beginner, intermediate, or advanced levels.</p></div>
-        <div class="step"><div class="step-n">4</div><h3>Move &amp; Improve</h3><p>Follow voice guidance, build streaks, and track your progress over time.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="test-sec">
-    <div class="inner">
-      <div class="stag">Testimonials</div>
-      <h2>Loved by seniors &amp;<br/>activity centers alike.</h2>
-      <p class="sub">Real stories from people using ActiveAging to stay active and independent.</p>
-      <div class="test-grid">
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <blockquote>"I'll finally be able to use the dumbbells lying around my house now!"</blockquote>
-          <div class="t-author"><div class="t-avatar">👵</div><div><div class="t-name">App Store User</div><div class="t-role">Senior User</div></div></div>
-        </div>
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <blockquote>"I think this will definitely help a lot of seniors get more active!"</blockquote>
-          <div class="t-author"><div class="t-avatar">🏢</div><div><div class="t-name">Activity Center Director</div><div class="t-role">Austin, TX</div></div></div>
-        </div>
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <blockquote>"Movement is medicine and ActiveAging makes sure every senior can access it safely."</blockquote>
-          <div class="t-author"><div class="t-avatar">💪</div><div><div class="t-name">App Philosophy</div><div class="t-role">Designed with mobility &amp; dignity in mind</div></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="inner">
-      <div class="about-grid">
+        <!-- About column -->
         <div>
           <div class="stag">About</div>
-          <h2>Built with purpose,<br/>designed with care.</h2>
-          <p class="about-body">ActiveAging was created to solve a real problem: seniors often lack safe, accessible, and guided exercise tools. Every design decision — from the large buttons to the voice coaching — was made with mobility and dignity in mind.</p>
-          <p class="about-body" style="margin-top:.85rem;">I noticed a real discrepancy between the resources available for young adults starting their fitness journey versus those available for senior citizens — especially people with mobility challenges, who are often left out entirely. With multiple years of experience in bodyweight training and strength conditioning, I felt compelled to do something about it. I've volunteered as a fitness instructor for a chair-based exercise class in Austin, TX, and saw firsthand how much seniors benefited from workouts tailored specifically to their circumstances — something that current apps simply don't do. That's how Active Aging was born. The majority of workouts on this app are custom-made with easy instructions and a UI designed with senior citizens in mind. And with the trainer feature, other centers can create custom exercises and encourage collective participation in workouts.</p>
-          <div class="tags">
-            <span class="tag">Swift / SwiftUI</span>
-            <span class="tag">iOS</span>
-            <span class="tag">AVFoundation</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">App Store</span>
-          </div>
-          <div style="margin-top:1.5rem;">
-            <a href="https://github.com/GautamPenna" target="_blank" class="btn-outline" style="font-size:.84rem;display:inline-flex;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-              View on GitHub (@GautamPenna)
-            </a>
+          <h2 style="margin-bottom:1rem;">Built with purpose,<br/>designed with care.</h2>
+          <p class="about-body">"I noticed a real discrepancy between the resources available for young adults starting their fitness journey versus those available for senior citizens — especially people with mobility challenges, who are often left out entirely. With multiple years of experience in bodyweight training and strength conditioning, I felt compelled to do something about it. I've volunteered as a fitness instructor for a chair-based exercise class in Austin, TX, and saw firsthand how much seniors benefited from workouts tailored specifically to their circumstances — something that current apps simply don't do. That's how Active Aging was born. The majority of workouts on this app are custom-made with easy instructions and a UI designed with senior citizens in mind."</p>
+          <p class="about-body" style="margin-top:.85rem;">Every design decision, from the large buttons to the voice coaching, was intentional.</p>
+          <div style="margin-top:1rem;font-size:.85rem;font-weight:700;color:var(--dark);">— Gautam Penna, Creator of Active Aging</div>
+          <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem;">
+            <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--mid);">
+              <span style="font-size:1rem;">📧</span>
+              <a href="mailto:gautam.penna@gmail.com" style="color:var(--violet);font-weight:600;text-decoration:none;">gautam.penna@gmail.com</a>
+            </div>
+            <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--mid);">
+              <span style="font-size:1rem;">📱</span>
+              <a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" style="color:var(--violet);font-weight:600;text-decoration:none;">View on the App Store →</a>
+            </div>
           </div>
         </div>
-        <div class="about-vis">
-          <div class="astat-grid">
-            <div class="astat"><div class="n">9+</div><div class="l">Guided Exercises</div></div>
-            <div class="astat"><div class="n">3</div><div class="l">Workout Plans</div></div>
-            <div class="astat"><div class="n">Free</div><div class="l">Always &amp; Forever</div></div>
-            <div class="astat"><div class="n">10+</div><div class="l">Downloads</div></div>
-          </div>
-          <div class="astore">
-            <div class="as-lbl">App Store</div>
-            <div class="as-name">ActiveAging — Senior Fitness Made Simple</div>
-            <div style="margin-top:.3rem"><a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" style="color:var(--violet);text-decoration:none;font-weight:600;font-size:.82rem;">View on the App Store →</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-sec" id="download">
-    <div class="inner">
-      <div class="cta-in">
-        <div class="stag" style="color:var(--violet-light);justify-content:center;"><span style="background:var(--violet-light)"></span>Get Started</div>
-        <h2>Start moving.<br/>Feel the difference.</h2>
-        <p class="sub" style="max-width:100%">No subscription. No credit card. No barriers.<br/>Safe, guided exercise built for seniors — free, always.</p>
-        <div class="cta-btns">
-          <a href="https://apps.apple.com/us/app/active-aging/id6758223883" target="_blank" class="btn-white">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--violet)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Download on App Store
-          </a>
-          <a href="/cdn-cgi/l/email-protection#0d6a6c78796c60237d6863636c4d6a606c6461236e6260" class="btn-ghost">Contact for Activity Centers →</a>
-        </div>
       </div>
     </div>
   </section>
@@ -600,6 +609,7 @@
     <span class="f-logo" onclick="showPage('main');window.scrollTo(0,0)">Active<span>Aging</span></span>
     <span>© 2026 ActiveAging · Safe · Guided · Empowering</span>
     <nav class="f-nav">
+      <a onclick="showPage('contact')">Contact</a>
       <a onclick="showPage('legal','privacy')">Privacy Policy</a>
       <a onclick="showPage('legal','terms')">Terms of Use</a>
       <a href="https://github.com/GautamPenna" target="_blank">GitHub</a>
@@ -775,10 +785,207 @@
 </div><!-- /page-legal -->
 
 
+<!-- ═══════════════════════════════════════
+     CONTACT PAGE
+═══════════════════════════════════════ -->
+<div id="page-contact">
+  <div class="contact-page">
+
+    <div class="contact-hero">
+      <div class="contact-hero-inner">
+        <button class="legal-back" onclick="showPage('main')" style="margin:0 auto 1.5rem;display:flex;">
+          ← Back to ActiveAging
+        </button>
+        <h1>Get in Touch</h1>
+        <p>Have feedback, a feature request, or a bug to report?<br/>I read every message and would love to hear from you.</p>
+      </div>
+    </div>
+
+    <div class="contact-body">
+      <div class="contact-card">
+
+        <!-- Success message -->
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✓</div>
+          <h3>Message sent!</h3>
+          <p>Thanks for reaching out. I'll get back to you at the email you provided as soon as I can — usually within a few days.</p>
+        </div>
+
+        <!-- Form — replace YOUR_FORM_ID after Formspree signup -->
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+          <div class="form-cols">
+            <div class="form-row">
+              <label>Name <span>*</span></label>
+              <input class="form-input" type="text" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-row">
+              <label>Email <span>*</span></label>
+              <input class="form-input" type="email" name="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>I am a… <span>*</span></label>
+            <div class="radio-group">
+              <input class="radio-option" type="radio" name="user_type" id="r-senior" value="Senior User" required />
+              <label class="radio-label" for="r-senior">👴 Senior User</label>
+              <input class="radio-option" type="radio" name="user_type" id="r-director" value="Activity Center Director" />
+              <label class="radio-label" for="r-director">🏢 Activity Center Director</label>
+              <input class="radio-option" type="radio" name="user_type" id="r-other" value="Other" />
+              <label class="radio-label" for="r-other">Other</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>Message Type <span>*</span></label>
+            <select class="form-select" name="message_type" required>
+              <option value="" disabled selected>Select a type…</option>
+              <option value="Feedback">💬 Feedback</option>
+              <option value="Feature Request">✨ Feature Request</option>
+              <option value="Bug Report">🐛 Bug Report</option>
+              <option value="General">📩 General</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label>Message <span>*</span></label>
+            <textarea class="form-textarea" name="message" placeholder="Tell me what's on your mind…" required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+
+      </div>
+
+      <!-- Info cards -->
+      <div class="contact-info">
+        <div class="contact-info-card">
+          <div class="cic-icon">📧</div>
+          <div>
+            <div class="cic-title">Email Directly</div>
+            <div class="cic-text">Prefer email? Reach me at <a href="/cdn-cgi/l/email-protection#355254404154581b45505b5b54755258545c591b565a58"><span class="__cf_email__" data-cfemail="81e6e0f4f5e0ecaff1e4efefe0c1e6ece0e8edafe2eeec">[email&#160;protected]</span></a></div>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="cic-icon">⏱️</div>
+          <div>
+            <div class="cic-title">Response Time</div>
+            <div class="cic-text">I aim to respond within a few days. All feedback directly shapes future updates.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span class="f-logo" onclick="showPage('main');window.scrollTo(0,0)">Active<span>Aging</span></span>
+      <span>© 2026 ActiveAging · Safe · Guided · Empowering</span>
+      <nav class="f-nav">
+        <a onclick="showPage('contact')">Contact</a>
+        <a onclick="showPage('legal','privacy')">Privacy Policy</a>
+        <a onclick="showPage('legal','terms')">Terms of Use</a>
+        <a href="https://github.com/GautamPenna" target="_blank">GitHub</a>
+      </nav>
+    </footer>
+
+  </div>
+</div><!-- /page-contact -->
+
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Nav scroll shadow
   const navEl = document.getElementById('nav');
   window.addEventListener('scroll', () => navEl.classList.toggle('scrolled', scrollY > 20));
+
+  // ── Page switching: main / legal / contact
+  function showPage(page, legalTab) {
+    document.getElementById('page-main').style.display    = page === 'main'    ? 'block' : 'none';
+    document.getElementById('page-legal').style.display   = page === 'legal'   ? 'block' : 'none';
+    document.getElementById('page-contact').style.display = page === 'contact' ? 'block' : 'none';
+    document.getElementById('nav-main-links').style.display    = page === 'main'    ? 'flex' : 'none';
+    document.getElementById('nav-legal-links').style.display   = page === 'legal'   ? 'flex' : 'none';
+    document.getElementById('nav-contact-links').style.display = page === 'contact' ? 'flex' : 'none';
+    window.scrollTo(0, 0);
+    if (page === 'legal' && legalTab) setLegalTab(legalTab);
+  }
+
+  // ── Smooth scroll to section on main page
+  function scrollToId(id) {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+  }
+
+  // ── Audience tabs
+  function setTab(id, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+
+  // ── Legal doc tabs
+  function setLegalTab(tab) {
+    document.querySelectorAll('.legal-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.legal-doc').forEach(d => d.classList.remove('active'));
+    document.getElementById('ltab-' + tab).classList.add('active');
+    document.getElementById('ldoc-' + tab).classList.add('active');
+    document.getElementById('nav-privacy-link').style.color = tab === 'privacy' ? 'var(--violet)' : '';
+    document.getElementById('nav-terms-link').style.color   = tab === 'terms'   ? 'var(--violet)' : '';
+    window.scrollTo(0, 0);
+  }
+
+  // ── Contact form: async Formspree submission
+  const contactForm = document.getElementById('contact-form');
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        contactForm.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — try again';
+      btn.disabled = false;
+    }
+  });
+
+  // ── Scroll-reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.feat-card,.step,.test-card,.feat-row').forEach(el => {
+    el.style.opacity='0'; el.style.transform='translateY(18px)';
+    el.style.transition='opacity .45s ease, transform .45s ease';
+    io.observe(el);
+  });
+
+  // ── Hash routing
+  function handleHash() {
+    const h = window.location.hash;
+    if (h === '#privacy') showPage('legal', 'privacy');
+    else if (h === '#terms') showPage('legal', 'terms');
+    else if (h === '#contact') showPage('contact');
+  }
+  handleHash();
+  window.addEventListener('hashchange', handleHash);
+</script>
+</body>
+</html>
 
   // ── Page switching (main ↔ legal)
   function showPage(page, legalTab) {
@@ -822,9 +1029,4 @@
   // ── Scroll-reveal on main page
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.feat-card,.step,.test-card,.feat-row').forEach(el => {
-    el.style.opacity='0'; el.style.transform='translateY(18px)';
-    el.style.tran
+      if (e.isIntersecting) { e.target.sty
