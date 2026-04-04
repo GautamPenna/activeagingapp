@@ -545,10 +545,12 @@
 <!-- ═══════════════════════════════════════
      NAV (shared)
 ═══════════════════════════════════════ -->
-<nav id="nav">
-  <span class="nav-logo" onclick="showPage('main');closeMenu()">Active<span>Aging</span></span>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
+<nav id="nav" style="position:fixed;top:0;left:0;right:0;z-index:9999;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:#fff;border-bottom:2px solid #E5E5EA;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+  <span class="nav-logo" onclick="showPage('main');closeMenu()" style="font-weight:800;font-size:1.2rem;color:#1C1C1E;cursor:pointer;letter-spacing:-.03em;">Active<span style="color:#C94FD8;">Aging</span></span>
+  <button id="hamburger" onclick="toggleMenu()" aria-label="Menu" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;width:48px;height:48px;background:#C94FD8;border:none;border-radius:12px;cursor:pointer;padding:6px;box-shadow:0 4px 14px rgba(201,79,216,0.4);">
+    <span style="display:block;width:22px;height:3px;background:#fff;border-radius:2px;"></span>
+    <span style="display:block;width:22px;height:3px;background:#fff;border-radius:2px;"></span>
+    <span style="display:block;width:22px;height:3px;background:#fff;border-radius:2px;"></span>
   </button>
 </nav>
 
